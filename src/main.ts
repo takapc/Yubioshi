@@ -83,6 +83,12 @@ const chunithm: ApplicationCommandData = {
                 },
             ],
         },
+        {
+            type: ApplicationCommandOptionType.Number,
+            name: "kosuu",
+            description: "出力する個数を指定(指定しないならAll)",
+            required: false,
+        },
     ],
 };
 

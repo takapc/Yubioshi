@@ -84,6 +84,12 @@ const chunithm = {
                 },
             ],
         },
+        {
+            type: discord_js_1.ApplicationCommandOptionType.Number,
+            name: "kosuu",
+            description: "出力する個数を指定(指定しないならAll)",
+            required: false,
+        },
     ],
 };
 const commandsRegister = [chunithm];

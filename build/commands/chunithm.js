@@ -34,23 +34,31 @@ const command = (interaction) => __awaiter(void 0, void 0, void 0, function* () 
     switch (levelField) {
         case constants_1.LevelField.const:
             msg += "定数";
+            break;
         case constants_1.LevelField.level:
             msg += "レベル";
+            break;
         case constants_1.LevelField.maxcombo:
             msg += "コンボ数";
+            break;
     }
     msg += " " + amount;
     switch (filterType) {
         case constants_1.FilterType.equal:
-            msg += "と同じ";
+            msg += "と等しい";
+            break;
         case constants_1.FilterType.gt:
             msg += "より大きい";
+            break;
         case constants_1.FilterType.gte:
             msg += "以上";
+            break;
         case constants_1.FilterType.lt:
             msg += "より小さい";
+            break;
         case constants_1.FilterType.lte:
             msg += "以下";
+            break;
     }
     if (typeof kosuu === "number")
         msg += " x" + kosuu;
@@ -59,11 +67,11 @@ const command = (interaction) => __awaiter(void 0, void 0, void 0, function* () 
         .then((e) => e.toLevelsWithName())
         .then((e) => randomSelect(e.LevelWithNameFilter(amount, levelField, filterType), kosuu))
         .then((e) => __awaiter(void 0, void 0, void 0, function* () {
-        return yield interaction.reply(e
-            .map((t) => msg +
+        return yield interaction.reply(msg +
             "\n" +
-            (0, codeBlock_1.codeBlock)(`${t.name} Lv.${t.level} ${t.genre}`, "fix"))
-            .join(""));
+            e
+                .map((t) => (0, codeBlock_1.codeBlock)(`${t.name} Lv.${t.level} ${t.genre}`, "fix"))
+                .join(""));
     }));
 });
 exports.command = command;

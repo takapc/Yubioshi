@@ -114,6 +114,7 @@ client.on("interactionCreate", async (interaction) => {
                 content: "```エラーが発生しました。```",
                 ephemeral: true,
             });
+            console.log(e);
         }
     }
 });

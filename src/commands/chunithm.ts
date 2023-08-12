@@ -29,23 +29,31 @@ export const command = async (interaction: Interaction<CacheType>) => {
     switch (levelField) {
         case LevelField.const:
             msg += "定数";
+            break;
         case LevelField.level:
             msg += "レベル";
+            break;
         case LevelField.maxcombo:
             msg += "コンボ数";
+            break;
     }
     msg += " " + amount;
     switch (filterType) {
         case FilterType.equal:
-            msg += "と同じ";
+            msg += "と等しい";
+            break;
         case FilterType.gt:
             msg += "より大きい";
+            break;
         case FilterType.gte:
             msg += "以上";
+            break;
         case FilterType.lt:
             msg += "より小さい";
+            break;
         case FilterType.lte:
             msg += "以下";
+            break;
     }
     if (typeof kosuu === "number") msg += " x" + kosuu;
     await client
@@ -60,17 +68,16 @@ export const command = async (interaction: Interaction<CacheType>) => {
         .then(
             async (e) =>
                 await interaction.reply(
-                    e
-                        .map(
-                            (t) =>
-                                msg +
-                                "\n" +
+                    msg +
+                        "\n" +
+                        e
+                            .map((t) =>
                                 codeBlock(
                                     `${t.name} Lv.${t.level} ${t.genre}`,
                                     "fix"
                                 )
-                        )
-                        .join("")
+                            )
+                            .join("")
                 )
         );
 };

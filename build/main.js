@@ -112,6 +112,7 @@ client.on("interactionCreate", (interaction) => __awaiter(void 0, void 0, void 0
                 content: "```エラーが発生しました。```",
                 ephemeral: true,
             });
+            console.log(e);
         }
     }
 }));
